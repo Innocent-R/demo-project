@@ -1,0 +1,50 @@
+body {
+  font-family: 'Tahoma', sans-serif;
+  background-image: url('https://images.unsplash.com/photo-1683871268982-a19153dbb35d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Ym9va3MlMjBsaWJyYXJ5fGVufDB8fDB8fHww&fm=jpg&q=60&w=3000');
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  margin: 0;
+}
+
+main {
+  max-width: 900px;
+  background: hsl(52, 36%, 83%);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 0.3rem 0.6rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: green;
+  color: white;
+}
+
+button:hover {
+  background: green;
+}
+h2{
+    color: rgb(152, 16, 16);
+}
+h1{
+    font-size: 3.5em;
+}
