@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Page Hive</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div>
+
+    <h1>Welcome, <%= user.name %>!</h1>
+
+    <h2>You have <%= user.borrowedBooks.length %> borrowed book(s)</h2>
+
+     </div><br><br>
+
+    <% if (user.borrowedBooks.length > 0) { %>
+       
+        <ul>
+            <% user.borrowedBooks.forEach(book => { 
+                const borrowDate = new Date(book.borrowedAt);
+                const now = new Date();
+                const diffDays = Math.ceil((borrowDate.getTime() + 7*24*60*60*1000 - now.getTime()) / (1000*60*60*24));
+            %>
+                <li>
+                    <strong><%= book.title %></strong> by <%= book.author %><br>
+                    Borrowed on: <%= borrowDate.toDateString() %><br>
+
+                    <% if (diffDays > 0) { %>
+                        Days remaining: <%= diffDays %>
+                    <% } else { %>
+                        <span style="color:red; font-weight:bold;">
+                            OVERDUE! Please return the book.
+                        </span>
+                    <% } %>
+                </li>
+                <br>
+            <% }); %>
+        </ul>
+    <% } %>
+
+    <a href="/books">Enter Library</a>  
+    <a href="/logout">Logout</a>
+
+    <!-- reminding the user number of days left to return the book -->
+    <script>
+        <% 
+        const soonDue = user.borrowedBooks.filter(b => {
+            const dueDate = new Date(b.borrowedAt).getTime() + 7*24*60*60*1000;
+            const diff = dueDate - Date.now();
+            return diff < 3 * 24 * 60 * 60 * 1000; 
+        });
+        %>
+
+        <% if (soonDue.length > 0) { %>
+            alert("Reminder: You have books due soon! Please check your borrowed list.");
+        <% } %>
+    </script>
+</body>
+</html>
+

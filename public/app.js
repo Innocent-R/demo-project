@@ -1,48 +1,112 @@
-const catalogEl = document.getElementById('catalog'); //Assigning variable catalogEl to the html element
-const shelfEl = document.getElementById('shelf'); //Assigning variable shelfEl to the html element
+const catalogEl = document.getElementById('catalog'); 
+const shelfEl = document.getElementById('shelf'); 
+
 
 let books = [];
+let borrowedBooks = borrowedBooksFromServer || [];
 
-async function fetchBooks() {
-  const res = await fetch('/api/books');
-  books = await res.json(); //converting response to json
-  render();
-}
-
+// Render books to the catalog and shelf
 function render() {
     catalogEl.innerHTML = '';
     shelfEl.innerHTML = '';
 
-    books.forEach(book => {
+    borrowedBooks.forEach(book => {
         const li = document.createElement('li');
-        li.textContent = book.title;
+
+         li.innerHTML = `
+    <strong>${book.title}</strong> by ${book.author}
+    ${book.cover ? `<br><img src="${book.cover}" width="80">` : ""}
+    <br>Year: ${book.year || "Unknown"}
+    <br><a target="_blank" href="https://archive.org/stream/${book.openLibraryId}">Read Online</a>
+`;
+        const btn = document.createElement('button');
+        btn.textContent = "Return";
+        btn.onclick = async () => {
+        const res = await fetch(`/api/return/${book.openLibraryId}`, { method: "POST" });
+        const data = await res.json();
+
+    if (res.status !== 200) {
+        alert(data.message);
+        return;
+    }
+
+    borrowedBooks = borrowedBooks.filter(b => b.openLibraryId !== book.openLibraryId);
+    render();
+};
+
+
+        shelfEl.appendChild(li);
+        li.appendChild(btn);
+    });
+
+    // Render catalog books (from search)
+    books.forEach((book, index) => {
+        const li = document.createElement('li');
+
+     li.innerHTML = `
+      <strong>${book.title}</strong> by ${book.author}
+      ${book.cover ? `<br><img src="${book.cover}" width="80">` : ""}
+      <br>Year: ${book.year || "Unknown"}
+      <p>Subjects: ${book.subjects && book.subjects.length ? book.subjects.join(", ") : "N/A"}</p>
+      <br>Editions: ${book.edition_count || "N/A"}
+`;
 
         const btn = document.createElement('button');
-        if (book.borrowed) { //if books if borrowed
-            btn.textContent = 'Return';
-            btn.onclick = () => returnBook(book.id);
-            shelfEl.appendChild(li);
-            li.appendChild(btn);
-        } else {
-            btn.textContent = 'Borrow';
-            btn.onclick = () => borrowBook(book.id); 
-            catalogEl.appendChild(li);
-            li.appendChild(btn);
-        }
+        btn.textContent = "Borrow";
+        btn.onclick = async () => {
+    
+        const res = await fetch(`/api/borrow/${book.ia}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+        title: book.title,
+        author: book.author,
+        cover: book.cover,
+        year: book.year
+    })
+});
+
+     const data = await res.json();
+
+    if (res.status !== 200) {
+        alert(data.message);
+        return;
+    }
+
+    borrowedBooks.push(data.book);
+    render();
+};
+
+
+        catalogEl.appendChild(li);
+        li.appendChild(btn);
     });
 }
 
-async function borrowBook(id) {
-  await fetch(`/api/borrow/${id}`, { method: 'POST' }); //Sending an asynchronous POST request to 'api'
-  fetchBooks(); //call fetchBooks function to reflesh the list
+// Fetch books from the server using books api
+
+async function fetchBooks(title = "", author = "") {
+    try {
+        const res = await fetch(`/api/books?title=${encodeURIComponent(title)}&author=${encodeURIComponent(author)}`);
+        books = await res.json();
+
+         if (books.length === 0) {
+            catalogEl.innerHTML = "<p>No books found. Try a different search.</p>";
+            return;
+        }
+        render();
+    } catch (err) {
+        console.error("Error fetching books:", err);
+    }
 }
 
-async function returnBook(id) {
-  await fetch(`/api/return/${id}`, { method: 'POST' });
-  fetchBooks(); //calling to function to reflesh
-}
+// Search form
+document.getElementById('searchForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const title = document.getElementById('searchTitle').value;
+    const author = document.getElementById('searchAuthor').value;
+    fetchBooks(title, author);
+});
 
-
-fetchBooks(); //call the function to load and shows all books
-
-//I used chaptgpt, google resources and house gardener for additional debugging references 
+// Initial render for borrowed books only
+render();

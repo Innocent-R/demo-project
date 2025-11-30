@@ -1,0 +1,73 @@
+
+body{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-image: url('https://images.wallpaperscraft.com/image/single/books_dark_shelf_159441_1920x1080.jpg');
+    background-size: cover;    
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-repeat: repeat;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    margin: 0;
+}
+h3 {
+    text-align: center;
+    color: white;
+    margin-top: 25px;
+    font-size: 2em;
+}
+input{
+    width: 180px;
+}
+
+#catalog, #shelf {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 15px auto;
+}
+
+#catalog li, #shelf li {
+    background: whitesmoke;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a {
+    text-align: center;
+    margin-top: 25px;
+    background-color: rgb(198, 194, 194);
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: rgb(236, 58, 58);
+}
+button {
+  padding: 0.3rem 0.6rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: green;
+  color: white;
+}
+
+button:hover {
+  background: green; 
+}
+p a{
+    background-color: red;
+    color: white;
+}
+div{
+    padding-right: 10px;
+}

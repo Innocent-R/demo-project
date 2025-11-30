@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <title>The Page Hive</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+<h1>Welcome To The Page Hive</h1><br><br>
+<div class="container">
+<div class="signup">
+
+
+    <h2 class="hone">Unlock a World of Stories!</h2><br>
+    <h2>Sign up and dive into a universe of knowledge and adventure. Your next favorite book is just a click away</h2>
+
+  <form action="/signup" method="POST">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    
+    <button type="submit">Sign Up</button>
+</form>
+
+ <% if (message.length > 0) { %>
+    <div class="flash-message"><%= message %></div>
+<% } %>
+
+   
+    <p>Already have an account? <a href="/login">Login</a></p>
+
+</div>
+</div>
+</body>
+</html>

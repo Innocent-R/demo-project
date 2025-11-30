@@ -1,0 +1,72 @@
+body{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-size: cover;    
+    background-repeat: repeat;
+    background-position: center;
+    
+}
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.login {
+    background: rgb(212, 207, 207);
+    padding: 30px;
+    width: 380px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login h2 {
+    margin-bottom: 20px;
+    color: black;
+}
+
+.login label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.login input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(213, 203, 203);
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.login button {
+    width: 100%;
+    padding: 12px;
+    background: green;
+    color: white;
+    border: none;
+    font-size: 17px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.login button:hover {
+    background: rgb(5, 148, 5);
+}
+
+.login a {
+    color: green;
+    text-decoration: none;
+}
+
+.login a:hover {
+    text-decoration: underline;
+}
+
+.login p {
+    margin-top: 15px;
+    color: black;
+}

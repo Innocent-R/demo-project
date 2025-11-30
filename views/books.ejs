@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Page Hive</title>
+    <link rel="stylesheet" href="/books.css">
+</head>
+<body>
+
+    <!-- searching for books online -->
+    <form id="searchForm">
+        <input type="text" id="searchTitle" placeholder="Book Title">
+        <input type="text" id="searchAuthor" placeholder="Author">
+        <button type="submit">Search</button>
+    </form>
+     
+    <div>
+    <h3>Book Catalog</h3>
+    <ul id="catalog"></ul>
+    </div>
+
+    <div>
+
+    <h3>Your Borrowed Books</h3>
+    <ul id="shelf"></ul>
+
+    </div>
+
+   <p><a href="/logout">Logout</a> </p> 
+    
+
+   <!-- passing borrowed books to the user for the server -->
+    <script>
+        const borrowedBooksFromServer = <%- JSON.stringify(borrowedBooks) %>;
+    </script>
+
+
+    <script src="/app.js"></script>
+</body>
+</html>
