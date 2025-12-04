@@ -1,0 +1,22 @@
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1rem 1.5rem;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.site-logo {
+    width: 85px;     
+    height: auto;
+    user-select: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    border-radius: 5px;
+}
+
+.site-logo:hover {
+    transform: scale(1.05);
+}

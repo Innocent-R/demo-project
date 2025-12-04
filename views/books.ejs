@@ -3,8 +3,12 @@
 <head>
     <title>The Page Hive</title>
     <link rel="stylesheet" href="/books.css">
+    <link rel="stylesheet" href="logo.css">
 </head>
 <body>
+  <header class="site-header">
+    <img src="/logo.png" class="site-logo" alt="Logo">
+</header>
 
     <!-- searching for books online -->
     <form id="searchForm">
@@ -13,19 +17,22 @@
         <button type="submit">Search</button>
     </form>
      
-    <div>
-    <h3>Book Catalog</h3>
-    <ul id="catalog"></ul>
+    <div class="main-wrapper">
+        <div class="section-box">
+            <h3>Book Catalog</h3>
+            <ul id="catalog"></ul>
+        </div>
+
+        <div class="section-box">
+            <h3>Your Borrowed Books</h3>
+            <ul id="shelf"></ul>
+        </div>
     </div>
 
-    <div>
 
-    <h3>Your Borrowed Books</h3>
-    <ul id="shelf"></ul>
 
-    </div>
+   <a href="/logout" class="logout-link">Logout</a>
 
-   <p><a href="/logout">Logout</a> </p> 
     
 
    <!-- passing borrowed books to the user for the server -->

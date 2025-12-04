@@ -3,15 +3,17 @@
 <head>
     <title>The Page Hive</title>
     <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="logo.css">
 </head>
 <body>
-    <div>
+    <header class="site-header">
+      <img src="/logo.png" class="site-logo" alt="Logo">
+   </header>
 
-    <h1>Welcome, <%= user.name %>!</h1>
-
-    <h2>You have <%= user.borrowedBooks.length %> borrowed book(s)</h2>
-
-     </div><br><br>
+       <div class="profile-header">
+            <h1>Welcome, <%= user.name %>!</h1>
+            <h2>You have <%= user.borrowedBooks.length %> borrowed book(s)</h2>
+        </div>
 
     <% if (user.borrowedBooks.length > 0) { %>
        
@@ -38,8 +40,8 @@
         </ul>
     <% } %>
 
-    <a href="/books">Enter Library</a>  
-    <a href="/logout">Logout</a>
+   <a href="/books" class="action-btn">Enter Library</a>
+    <a href="/logout" class="logout-btn">Logout</a>
 
     <!-- reminding the user number of days left to return the book -->
     <script>

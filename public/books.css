@@ -1,73 +1,153 @@
-
-body{
+/* ===== GLOBAL STYLES ===== */
+body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-image: url('https://images.wallpaperscraft.com/image/single/books_dark_shelf_159441_1920x1080.jpg');
-    background-size: cover;    
-    background-repeat: no-repeat;
-    background-position: center; 
-    background-repeat: repeat;
-    display: flex;
-    justify-content: center;
-    padding: 2rem;
+    background: hsl(211, 40%, 25%);
+    color: hsl(210, 20%, 95%);
     margin: 0;
-}
-h3 {
-    text-align: center;
-    color: white;
-    margin-top: 25px;
-    font-size: 2em;
-}
-input{
-    width: 180px;
-}
-
-#catalog, #shelf {
-    list-style: none;
-    padding: 0;
-    max-width: 600px;
-    margin: 15px auto;
-}
-
-#catalog li, #shelf li {
-    background: whitesmoke;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 2rem;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 }
 
-a {
-    text-align: center;
-    margin-top: 25px;
-    background-color: rgb(198, 194, 194);
-    padding: 0.3rem 0.6rem;
-    border-radius: 5px;
-    color: black;
+/* ===== LOGOUT BUTTON (top right) ===== */
+.logout-link {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    background: hsl(0, 80%, 55%);
+    color: white !important;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
     text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+     transition: background 0.25s, transform 0.2s;
 }
 
-a:hover {
-    background-color: rgb(236, 58, 58);
+
+.logout-link:hover {
+    background: hsla(0, 80%, 55%, 1);
+    transform: translateY(-2px);
 }
+
+#searchForm {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+#searchForm input {
+    padding: 0.55rem 0.7rem;
+    width: 200px;
+
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 6px;
+    color: white;
+
+    outline: none;
+}
+
+#searchForm input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+#searchForm button {
+    padding: 0.6rem 1.2rem;
+    background: hsl(148, 70%, 40%);
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: 0.2s;
+}
+
+#searchForm button:hover {
+    background: hsl(148, 70%, 45%);
+}
+
+.main-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1300px;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.section-box {
+    flex: 1;
+
+    background: rgba(255, 255, 255, 0.12);
+    padding: 1.4rem;
+    border-radius: 14px;
+
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+h3 {
+    text-align: center;
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+}
+
+#catalog,
+#shelf {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+#catalog li,
+#shelf li {
+    background: rgba(255,255,255,0.16);
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 10px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-left: 4px solid hsl(200, 80%, 65%);
+    backdrop-filter: blur(6px);
+}
+
 button {
-  padding: 0.3rem 0.6rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background: green;
-  color: white;
+    padding: 0.45rem 0.9rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+
+    background: hsl(148, 62%, 44%);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    transition: 0.25s;
 }
 
 button:hover {
-  background: green; 
+    background: hsl(148, 62%, 36%);
 }
-p a{
-    background-color: red;
-    color: white;
-}
-div{
-    padding-right: 10px;
-}
+
+
+
+

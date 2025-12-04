@@ -1,66 +1,87 @@
 
 body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-image: url("https://miro.medium.com/v2/da:true/resize:fit:1200/0*cqPWt_uqeZgPWRby");
-    background-size: cover;    
-    background-repeat: no-repeat;
-    background-position: center;
+    background: hsl(211, 40%, 25%);
     margin: 0;
-    padding: 10px;
+    padding: 2rem;
     text-align: center;
+    color: hsl(210, 20%, 20%);
+    position: relative;
+}
+.logout-btn {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    background: hsl(0, 80%, 55%);
+    color: white !important;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
 }
 
+.logout-btn:hover {
+    background: hsla(0, 80%, 55%, 1);
+    transform: translateY(-2px);
+}
+
+.profile-header {
+    width: 100%;
+    max-width: 900px; 
+    margin: 0 auto 2rem auto;
+    background: hsl(48, 100%, 96%); 
+    padding: 2.5rem;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px hsla(210, 20%, 10%, 0.12);
+}
+
+
 h1 {
-    color: black;
+    font-size: 2.2rem;
     margin-bottom: 10px;
-    font-size: 3em;
-    font-weight: bolder;
+    color: hsl(210, 25%, 15%);
+    font-weight: bold;
 }
 
 h2 {
-    color: black;
+    font-size: 1.2rem;
+    margin-top: 5px;
+    color: hsl(210, 25%, 25%);
 }
+
 
 ul {
     list-style: none;
-    max-width: 900px;
-    margin:  auto;
     padding: 0;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
 }
 
 li {
-    background: rgb(220, 216, 216);
-    padding: 15px;
+    background: hsl(210, 40%, 98%);
+    padding: 16px;
     border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px hsla(210, 20%, 10%, 0.08);
     margin-bottom: 15px;
-    line-height: 1.5;
+    text-align: left;
+    line-height: 1.6;
+    border-left: 4px solid hsl(200, 80%, 45%); 
 }
 
-a {
+.action-btn {
+    padding: 10px 18px;
     text-decoration: none;
-    padding: 10px 15px;
-    background: green;
+    background: hsl(148, 71%, 29%);
     color: white;
-    border-radius: 6px;
-    margin: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin: 0.5rem;
     display: inline-block;
+    transition: 0.2s;
 }
 
-a:hover {
-    background: green;
-}
-
-a[href="/books"], 
-a[href="/logout"] {
-    display: inline-block;
-    margin-top: 20px;
-    text-align: center;
-}
-
-body > a {
-    text-align: center;
-}
-div{
-    background-color: rgb(222, 222, 27);
+.action-btn:hover {
+    background: hsl(148, 71%, 34%);
 }
