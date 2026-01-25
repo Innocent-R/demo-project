@@ -13,4 +13,4 @@ While building Page Hive, I gained hands-on experience with full-stack developme
 
 <img width="1100" height="712" alt="destination" src="public/frontpage.png" />
 
-Find the live project here: https://demo-project-2-t6ko.onrender.com/signup
+Find the live project here: https://the-page-hive.onrender.com
